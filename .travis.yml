@@ -9,15 +9,16 @@ before_install:
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
-- docker build --build-arg JAR_FILE=/target/backend.jar -t $DOCKER_USERNAME/se234-lab10-backend .
+- docker build --build-arg JAR_FILE=/target/backend.jar -t $DOCKER_USERNAME/se234-lab10-backend  .
 - docker push 592115514/se234-lab10-backend
 - docker pull 592115514/se234-lab10-client
+
 
 script:
 - docker-compose -H "$DOCKER_HOST" up -d
 cache: 
-directories:
-- "$HOME/.m2"
+  directories:
+  - "$HOME/.m2"
 env:
   global:
   - secure: idENlmyfw+GQ9iHORwU12Eqdu+a1J9DgTh49pwvZIKWUp6N2wbh8o+7ZC1AGtgOlaffK2rkNIpBflUsKwCmyDyJ7WJzEFM+hWsjgXk4Y5sz1k2cXHfCTM3/8WTNrRd688Vv5cL7H13XtNkxm8FhScTXmh4yp1uqys8wVPsGsIDUmo00l6XO0ZeZtjX1YF2PaHY1+siPAj7L8zwoHM65i8WyU0xYLPYf4ZhACRvE25Cpy6UcKQshOVMV2zFcEuf5yBPglasLEdoTf1dfopOaJJsYq2MAaCpAAlr/HJN9hIg5WiZX/wXXrNSaBe4ykRL+GRpL3DdTaxfkuUxuEmRBekaNHgyjADyMufPmVhYufFgF7GZJGtuU2H3Ny8rc1jJ8nwnDskWvhsBZExyr6CRQE8nolzyKI+WBpuEbXRyGzSwdmLdiyKfJ4fiHLTG4lukyscuhFkZjI6tFrJXFmTSqB/pFLDcsbeeUZ1XchBwrloWCp8+DSChphc1Hs6fEZarwCrL3sIPYtVD6sYf4+43KgFVUViXDdvJoAunjrtfPMfjVB+d5KrzFk5qxGf+G99Gcb17f9Ye85v/1Uu/ejH2c2Zjb1g/lj9LLhaRsyjCsmhdojiCDIcRUk9D1RxXHAdesEINYvYLVl2RfOCOlCk+n3PlutNBU/rnpVBbv7o2PYyLc=
