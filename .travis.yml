@@ -15,6 +15,12 @@ install:
 script:
 - docker-compose -H "$DOCKER_HOST" up -d
 cache:
+<<<<<<< HEAD
 directories:
 - "$HOME/.m2"
 env:
+=======
+ directories:
+ - "$HOME/.m2"
+env:
+>>>>>>> master
